@@ -9,7 +9,6 @@ def train_model_without_SA():
     train_dir = 'data/HAM10000/train_dir'
     test_dir = 'data/HAM10000/test_dir'
 
-    # Остальной код остается без изменений
 
     resnet = ResNet50(include_top=True, weights="imagenet", input_tensor=None, input_shape=None, pooling=None,
                       classes=1000)
@@ -22,7 +21,7 @@ def train_model_without_SA():
     model.summary()
 
     model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
-    # Остальной код остается без изменений
+
 
     model.fit(train_batches, steps_per_epoch=len(train_df) // batch_size, epochs=10, verbose=1,
               callbacks=callbacks_list, validation_data=test_batches, validation_steps=len(test_df) // batch_size)
